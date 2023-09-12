@@ -9,6 +9,7 @@ import { Product} from './product.model'
 })
 
 export class AppComponent {
+  widthImage = 50;
   name = 'Alain';
   age = 38;  
 
@@ -67,6 +68,18 @@ export class AppComponent {
       image: './assets/images/glasses.jpg'
     }
   ]
+
+  box = {
+    width : 100,
+    height: 100,
+    background : 'red'
+  }
+
+  register = {
+    name: '',
+    email: '',
+    password: ''
+  }
 
   constructor(){
     this.product = new Producto('pro001','Laptop', 1025.99, 10);
@@ -131,6 +144,9 @@ export class AppComponent {
     this.names.splice(index, 1);
   }
 
+  onRegister(){
+    console.log(this.register)
+  }
   
 
 }

@@ -6,8 +6,11 @@
   }
 
   .products--grid{
-    display: flex;
-    flex-direction: column;
+    // display: flex;
+    // flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 15px;
     div {
       img {
         width: 100%;
@@ -26,5 +29,31 @@
       grid-template-columns: repeat(5, 1fr);
       grid-gap: 15px;
     }
+  }
+
+  .message-error{
+    background: red;
+    color: white;
+    opacity: 0;
+    transition: .5s;
+    &.mostrar{
+      opacity: 1;
+    }
+  }
+
+  .styles {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .line-error {
+    height: 0px;
+    border-bottom: 3px solid;
+    &.rojo{
+      border-color: red;
+    }
+    &.verde{
+      border-color: green;
+    }  
   }
   
