@@ -35,8 +35,9 @@ laura.ln
 
 export class Producto{  
   constructor(
-    public id: number, 
+    public codigo: string, 
     public descripcion: string, 
-    public precio: number
+    public precio: number,
+    public cantidad: number
   ){}
 }

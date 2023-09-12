@@ -1,9 +1,108 @@
+<h1>*ngFor Objs</h1>
+<div class="products--grid">
+  <div *ngFor="let product of products">
+    <img [src]="product.image" alt="image">
+    <h2>{{product.price}}</h2>
+    <p>{{product.name}}</p>
+  </div>
+</div>
+<hr>
+<h1>ngSwitch</h1>
+<input type="text" required [(ngModel)]="persona.lastname">
+<div [ngSwitch]="persona.lastname">
+  <p *ngSwitchCase="'nicolas'">
+    Las persona es Nicolas
+  </p>
+  <p *ngSwitchCase="'laura'">
+    Las persona es Laura
+  </p>
+  <p *ngSwitchCase="'alain'">
+    Las persona es Alain
+  </p>
+</div>
+<hr>
+<h1>*ngFor Objs</h1>
+<div>
+  <div *ngFor="let product of products">
+    <img [src]="product.image" alt="image" style="width: 250px;">
+    <h2>{{product.price}}</h2>
+    <p>{{product.name}}</p>
+  </div>
+</div>
+<hr>
+<h1>Productos de Computo</h1>
+<label for="">Código</label>
+<input type="text" [(ngModel)]="this.articulo.codigo"><br>
+<label for="">Descripción</label>
+<input type="text" [(ngModel)]="this.articulo.descripcion"><br>
+<label for="">Cantidad</label>
+<input type="text" [(ngModel)]="this.articulo.cantidad"><br>
+<label for="">Precio</label>
+<input type="text" [(ngModel)]="this.articulo.precio"><br>
+<br>
+<button (click)="agregarProducto()">Agregar Producto</button>
+<h2>Productos Registrados</h2>
+<table>
+  <thead>
+    <th>Index</th>
+    <th>Código</th>
+    <th>Descripción</th>
+    <th>Precio</th>
+    <th>Cantidad</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let prod of listArticulos; index as i">
+      <td>{{i+1}}</td>
+      <td>{{prod.codigo}}</td>
+      <td>{{prod.descripcion}}</td>
+      <td>{{prod.precio}}</td>
+      <td>{{prod.cantidad}}</td>
+      <td><button (click)="eliminarProducto(prod.codigo)">Eliminar</button></td>
+    </tr>
+
+  </tbody>
+</table>
+<hr>
+<h1>*ngFor</h1>
+<input type="text" required [(ngModel)]="newName" >
+<button (click)="addName()">Agregar Nombre</button>
+<ul>
+  <li *ngIf="names.length === 0">No hay nombres</li>
+  <li *ngFor="let nome of names; index as i">{{i}} - {{nome}}
+    <button (click)="deleteName(i)">Eliminar Nombre</button>
+  </li>
+</ul>
+<hr>
+
+
+<h1>*ngIf</h1>
+<input type="text" required [(ngModel)]="persona.lastname">
+<p *ngIf="persona.lastname === 'Alakings18' && personaEdad === 18">Valido Alain18</p>
+<p *ngIf="persona.lastname === 'Alakings'">Valido Alain</p>
+<p *ngIf="persona.lastname === 'Juanes'">Valido Colombia</p>
+<p *ngIf="persona.lastname === 'JuanesE'; else elseBlock">Valido Colombia Else</p>
+<p *ngIf="1 == 1">Mi parrafo 1 == 1</p>
+<ng-template #elseBlock>
+  <p>Bloque Else</p>
+</ng-template>
+<hr>
+<h1>ngModel</h1>
+<p>Apellidos: {{persona.lastname}}</p>
+<input id="i3" type="text" required #lastnameInput="ngModel" [(ngModel)]="persona.lastname">
+<p>Valid: {{lastnameInput.valid}}</p>
+<p>Edad: {{personaEdad}}</p>
+<input id="i4" type="number" min="10" max="18" required #ageInput="ngModel" [(ngModel)]="personaEdad">
+<p>Valid: {{ageInput.valid}}</p>
+<hr>
+<label for="b1">Mi boton</label>
+<button id="b1" (onKeyUp)="buttonClick($event)">button event</button>
+<hr>
 <h1>Eventos II (keyup)</h1>
 <div class="box" (scroll)="onScroll($event)">
   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi nihil autem dolor illo temporibus debitis, neque in, voluptate aut repellendus eaque itaque commodi incidunt impedit laborum voluptatem velit tenetur est!. Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi nihil autem dolor illo temporibus debitis, neque in, voluptate aut repellendus eaque itaque commodi incidunt impedit laborum voluptatem velit tenetur est!</p>
 </div>
 <p>Apellidos: {{persona.lastname}}</p>
-<input type="text" [value]="persona.lastname" (keyup)="changeName($event)">
+<input id="i1" type="text" [value]="persona.lastname" (keyup)="changeName($event)">
 <hr>
 <h1>Eventos (click)</h1>
 <button [disabled]="btnDisabled" (click)="showModal()">Mostrar Modal</button>
@@ -14,7 +113,7 @@
 <hr>
 <h1>Propiedades [value]</h1>
 <button [disabled]="btnDisabled">Enviar</button>
-<input type="text" [value]="name">
+<input id="i2" type="text" [value]="name">
 <progress max="100" [value]="personaEdad"></progress>
 <hr />
 <h1>String</h1>
@@ -30,13 +129,13 @@
 
 <div>
   <h1>{{product.descripcion}}</h1>
-  <p>ID: {{product.id}}</p>
+  <p>ID: {{product.codigo}}</p>
   <p>Precio: {{product.precio | currency:'S/.':'symbol':'1.2-2'}}</p>
 </div>
 
 <img src={{img}} alt="imagen perdida" style="height: 100px;">
 
 <div [hidden]="!isVisibleModal">
-  <label for="">Nombre</label>
-  <input type="text" value="Alain">
+  <label for="caja">Nombre</label>
+  <input id="caja" type="text" value="Alain">
 </div>
